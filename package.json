@@ -1,0 +1,12 @@
+{
+  "name": "plant-disease-analyzer",
+  "version": "1.0.0",
+  "description": "Plant Disease Detection Web App",
+  "scripts": {
+    "build": "tailwindcss -i ./static/src/input.css -o ./static/dist/output.css",
+    "watch": "tailwindcss -i ./static/src/input.css -o ./static/dist/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}
