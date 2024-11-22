@@ -1,4 +1,4 @@
-name: Deploy Frontend to GitHub Pages
+name: Deploy Frontend
 
 on:
   push:
@@ -22,11 +22,11 @@ jobs:
           npm install -g tailwindcss
           npx tailwindcss -i ./static/src/input.css -o ./static/dist/output.css
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          publish_branch: gh-pages
-          keep_files: true
-          exclude_assets: '*.py,requirements.txt,README.md,CONTRIBUTING.md,LICENSE,.gitignore,uploads/**'
+      - name: Deploy
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+          git checkout main
+          git add .
+          git commit -m "Deploy frontend updates" || echo "No changes to commit"
+          git push
